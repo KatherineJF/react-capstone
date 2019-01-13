@@ -49,24 +49,20 @@ class TimeLine extends Component {
 
 
     componentDidMount () {
-      fetch(('http://127.0.0.1:8000/timeline/',{withCredentials:true}), {
-      // mode: 'no-cors',
-
-      method: 'GET',
-      headers: {
-        // withCredentials: true,
-        Accept: 'application/json',
-      },
-    },
-    ).then(response => {
-      if (response.ok) {
-        response.json()
-        .then(json => {
-          console.log(json);
-        });
-      }
-    });
-
+         axios.get(URL,{withCredentials: true})
+            .then( response => {
+              return response.data;
+            }).then(data => {
+              let tweets = data.response.map((tweet) =>{
+                return(
+                  <div key={tweet.response}>
+                  return {this.state.tweet};
+                  </div>
+                )
+              })
+              this.setState({tweets:tweets});
+              console.log("state", this.state.tweets);
+            })
             }
 
 
@@ -91,7 +87,7 @@ class TimeLine extends Component {
       return (
         <div>
 
-    
+      {this.state.tweets}
 
         </div>
 
