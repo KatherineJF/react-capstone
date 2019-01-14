@@ -35,7 +35,7 @@ class TimeLine extends Component {
               console.log(result)
                 this.setState({
                   isLoaded:false,
-                  tweets:result.data
+                  tweets:[result.data]
                 });
               },
               (error) => {
@@ -50,6 +50,8 @@ class TimeLine extends Component {
 
           render() {
              const { error, isLoaded, tweets} = this.state;
+             console.log('TWEETS');
+             console.log(tweets);
              if (error) {
                return<div>Error:{error.message}</div>;
              } else if (isLoaded) {
