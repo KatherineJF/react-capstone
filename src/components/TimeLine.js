@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Tweet from './Tweet';
-import PropTypes from 'prop-types';
-axios.defaults.xsrfCookieName = 'csrftoken'
-axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+// import Tweet from './Tweet';
+// import PropTypes from 'prop-types';
+// axios.defaults.xsrfCookieName = 'csrftoken'
+// axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
 const URL = "http://127.0.0.1:8000/timeline/";
 class TimeLine extends Component {
 
   constructor(props){
     super(props);
-
     this.state = {
-
-             tweets: {}
-
-
-    }
+      error: null,
+      isLoaded: false,
+      tweets: []
+    };
   }
 
 
@@ -32,30 +30,61 @@ class TimeLine extends Component {
 
     componentDidMount () {
          axios.get(URL,{withCredentials: true})
-            .then( res => {
-              this.setState({tweets:res.data});
-            });
+            .then(res => res.json())
+            .then(
+              (result) =>{
+                this.setState({
+                  isLoaded:true,
+                  tweets:result.tweets
+                });
+              },
+              (error) => {
+                this.setState({
+                  isLoaded:true,
+                  error
+                });
+              }
+            )
           }
+
+
           render() {
-             const { tweets = [] } = this.props;
-            return (
-
-              <Tweet tweets={tweets}/>
-            );
-          }
-        }
-
-        function TweetList({ tweets }) {
-          return (
-            <ul>
-            {tweets.map(tweet =>
-              <li key={tweet.id}>{tweet.text}</li>
-            )}
-            </ul>
-          );
-        }
-
-
+             const { error, isLoaded, tweets} = this.state;
+             if (error) {
+               return<div>Error:{error.message}</div>;
+             } else if (isLoaded) {
+               return <div>Loading...</div>;
+             } else {
+               return(
+                 <ul>
+                 {tweets.map(tweet =>(
+                   <li key={tweet.id}>
+                   {tweet.id}{tweet.text}
+                   </li>
+                 ))}
+                 </ul>
+               );
+             }
+           }
+         }
+        //     return (
+        //
+        //       <Tweet tweets={tweets}/>
+        //     );
+        //   }
+        // }
+        //
+        // function TweetList({ tweets }) {
+        //   return (
+        //     <ul>
+        //     {tweets.map(tweet =>
+        //       <li key={tweet.id}>{tweet.text}</li>
+        //     )}
+        //     </ul>
+        //   );
+        // }
+        //
+        //
 
 
 
