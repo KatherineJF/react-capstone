@@ -12,7 +12,9 @@ class TimeLine extends Component {
     super(props);
 
     this.state = {
-      tweets: [],
+
+             tweets: []
+
 
     }
   }
@@ -50,20 +52,20 @@ class TimeLine extends Component {
 
     componentDidMount () {
          axios.get(URL,{withCredentials: true})
-            .then( response => {
-              return response.data;
-            }).then(data => {
-              let tweets = data.response.map((tweet) =>{
-                return(
-                  <div key={tweet.response}>
-                  return {this.state.tweet};
-                  </div>
-                )
-              })
-              this.setState({tweets:tweets});
-              console.log("state", this.state.tweets);
-            })
-            }
+            .then( res => {
+              this.setState({tweets:res.data});
+            });
+          }
+          render() {
+            return (
+              <ul>
+                {this.state.tweets.map(tweet =>
+                  <li key={tweet.id}>{tweet.screen_name}</li>
+                )}
+              </ul>
+            );
+          }
+        }
 
 
 
@@ -82,18 +84,20 @@ class TimeLine extends Component {
           //           />
           // });
           // }
-
-    render() {
-      return (
-        <div>
-
-      {this.state.tweets}
-
-        </div>
-
-      )
-    }
-  }
+  //
+  //   render() {
+  //     return (
+  //       <div>
+  //
+  //       <ul>
+  //    {this.state.tweets && this.state.tweets.map(tweet => { return <Tweet />})}
+  //  </ul>
+  //
+  //       </div>
+  //
+  //     )
+  //   }
+  // }
 
 
 //
