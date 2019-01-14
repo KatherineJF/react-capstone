@@ -30,12 +30,12 @@ class TimeLine extends Component {
 
     componentDidMount () {
          axios.get(URL,{withCredentials: true})
-            .then(res => res.json())
-            .then(
-              (result) =>{
+            // .then(res => res.json())
+            .then (result => {
+              console.log(result)
                 this.setState({
-                  isLoaded:true,
-                  tweets:result.tweets
+                  isLoaded:false,
+                  tweets:result.data
                 });
               },
               (error) => {
@@ -55,18 +55,23 @@ class TimeLine extends Component {
              } else if (isLoaded) {
                return <div>Loading...</div>;
              } else {
-               return(
-                 <ul>
-                 {tweets.map(tweet =>(
+               const tweetstack = tweets.map((tweet) => {
+                 return (
                    <li key={tweet.id}>
-                   {tweet.id}{tweet.text}
+                    {tweet.id}{tweet.text}
                    </li>
-                 ))}
-                 </ul>
-               );
-             }
+                 )
+                 });
+               return(
+                   <ul>
+                   <li>{ tweetstack } </li>
+                   </ul>
+                 );
+               }
            }
-         }
+        }
+
+export default TimeLine ;
         //     return (
         //
         //       <Tweet tweets={tweets}/>
@@ -249,5 +254,3 @@ class TimeLine extends Component {
 // // RentalLibrary.propTypes = {
 // //  onSelectMovie: PropTypes.func,
 // // };
-
-export default TimeLine ;
