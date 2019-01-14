@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Tweet from './Tweet';
-
+import PropTypes from 'prop-types';
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
@@ -13,7 +13,7 @@ class TimeLine extends Component {
 
     this.state = {
 
-             tweets: []
+             tweets: {}
 
 
     }
@@ -28,26 +28,6 @@ class TimeLine extends Component {
 //              data: data,
 //          });
 //     );
-// }
-//
-// render() {
-//     const { currentPage, usersPerPage, data } = this.state;
-//     const currentPhotos = data.slice(firstPage, lastPage);
-//
-//     const renderPhotos = currentPhotos.map((photo) => (
-//         <tr key={photo.id}>
-//              <td className="number">{photo.title}</td>
-//         </tr>
-//     );
-//
-//
-//     const renderPagination = numbers.map(number => {
-//          return (
-//               <li className="controls" key={number} id={number} onClick={this.handlePages}>
-//                   {number}
-//               </li>
-//           );
-//     });
 
 
     componentDidMount () {
@@ -57,14 +37,22 @@ class TimeLine extends Component {
             });
           }
           render() {
+             const { tweets = [] } = this.props;
             return (
-              <ul>
-                {this.state.tweets.map(tweet =>
-                  <li key={tweet.id}>{tweet.screen_name}</li>
-                )}
-              </ul>
+
+              <Tweet tweets={tweets}/>
             );
           }
+        }
+
+        function TweetList({ tweets }) {
+          return (
+            <ul>
+            {tweets.map(tweet =>
+              <li key={tweet.id}>{tweet.text}</li>
+            )}
+            </ul>
+          );
         }
 
 

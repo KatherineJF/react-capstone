@@ -15,7 +15,7 @@ const Tweet = (props) => {
 Tweet.propTypes = {
     id: PropTypes.number,
     text: PropTypes.string,
-    source: PropTypes.strin,
+    source: PropTypes.string,
     screen_name: PropTypes.string,
 
 
