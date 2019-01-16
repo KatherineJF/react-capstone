@@ -29,13 +29,13 @@ class TimeLine extends Component {
 
 
     componentDidMount () {
-         axios.get(URL,{withCredentials: true})
+         axios.get(`URL?twitter_user=${this.state.twitter_user}`, {withCredentials: true})
             // .then(res => res.json())
             .then (result => {
               console.log(result)
                 this.setState({
-                  isLoaded:false,
-                  tweets:[result.data]
+                  isLoaded: false,
+                  tweets: result.data
                 });
               },
               (error) => {
@@ -66,7 +66,7 @@ class TimeLine extends Component {
                  });
                return(
                    <ul>
-                   <li>{ tweetstack } </li>
+                   { tweetstack }
                    </ul>
                  );
                }
