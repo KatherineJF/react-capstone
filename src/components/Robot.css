@@ -1,0 +1,80 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="172.5" height="236.5" viewBox="0 0 172.5 236.5">
+  <defs>
+    <style>
+      <![CDATA[
+		    .body-colour {
+			    fill: #FE4444;
+		    }
+        .body-parts {
+          fill: #332E32;
+        }
+      ]]>
+    </style>
+    <circle cx="66.543" cy="41.647" r="7.343" id="left-outer"/>
+    <circle cx="105.404" cy="41.647" r="7.343" id="right-outer"/>
+      <mask id="left-mask">
+        <rect width="100%" height="100%" fill="white"></rect>
+        <use xlink:href="#left-outer" id="leftlid" fill="black"/>
+      </mask>
+      <mask id="right-mask">
+        <rect width="100%" height="100%" fill="white"></rect>
+        <use xlink:href="#right-outer" id="rightlid" fill="black"/>
+      </mask>
+  </defs>
+  <ellipse fill="#95c9de" cx="86.567" cy="226.176" rx="82.439" ry="7.011"/>
+<g id="head">
+  <line x1="46" y1="10" x2="46" y2="40" stroke-width="3" stroke="black"/>
+  <line x1="126" y1="10" x2="126" y2="40" stroke-width="3" stroke="black"/>
+  <circle class="body-colour" cx="45.847" cy="7.221" r="4.771"/>
+  <circle class="body-colour" cx="125.556" cy="7.221" r="4.771"/>
+  <path class="body-parts" d="M93.073 21.262l15.334-13.28-3.004-4.195L90.48 20.1l.062.027c-1.237-.394-2.572-.62-3.973-.62-2.11 0-4.08.498-5.765 1.35L67.115 7.794l-2.575 2.48 14.245 11.882h.003c-2.123 1.72-3.448 4.132-3.448 6.81 0 5.222 5.026 9.457 11.23 9.457 6.2 0 11.23-4.235 11.23-9.458 0-3.18-1.87-5.988-4.727-7.702z"/>
+  <rect class="body-colour" x="51" y="27" width="70" height="44" rx="7" ry="7"/>
+  <circle class="body-colour" cx="52" cy="45" r="10"/>
+  <circle class="body-colour" cx="120" cy="45" r="10"/>
+  <g id="lefteye">
+    <circle fill="white" cx="66.543" cy="41.647" r="7.343"/>
+    <circle class="body-parts" cx="66.543" cy="41.647" r="4.045"/>
+    <use xlink:href="#left-outer" mask="url(#left-mask)" fill="#FFFFFF"/>
+  </g>
+  <g id="right-eye">
+    <circle fill="white" cx="105.404" cy="41.647" r="7.343"/>
+    <circle class="body-parts" cx="105.403" cy="41.647" r="4.276"/>
+    <use xlink:href="#right-outer" mask="url(#right-mask)" fill="#FFFFFF"/>
+  </g>
+  <use xlink:href="#right-eyelid" mask="url(#rightmask)" fill="#FFFFFF"/>
+  <circle fill="white" cx="85.9" cy="47.273" r="3.243"/>
+  <rect fill="white" x="70" y="60" width="32" height="5" rx="5" ry="5"/>
+  <rect class="body-parts" x="76" y="70" width="20" height="10"/>
+</g>
+<g id="body">
+  <rect class="body-colour" x="41" y="78" width="89" height="109" rx="10" ry="10"/>
+  <circle class="body-parts" cx="111.296" cy="119.922" r="5.893"/>
+  <rect fill="white" x="50" y="112" width="45" height="18" rx="4" ry="4"/>
+  <line x1="55" y1="122" x2="55" y2="129" stroke-width="1" stroke="black"/>
+  <line x1="60" y1="122" x2="60" y2="129" stroke-width="1" stroke="black"/>
+  <line x1="65" y1="122" x2="65" y2="129" stroke-width="1" stroke="black"/>
+  <line x1="70" y1="122" x2="70" y2="129" stroke-width="1" stroke="black"/>
+  <line x1="75" y1="122" x2="75" y2="129" stroke-width="1" stroke="black"/>
+  <line x1="80" y1="122" x2="80" y2="129" stroke-width="1" stroke="black"/>
+  <line x1="85" y1="122" x2="85" y2="129" stroke-width="1" stroke="black"/>
+  <line x1="90" y1="122" x2="90" y2="129" stroke-width="1" stroke="black"/>
+  <line class="gage" x1="60" y1="115" x2="60" y2="129" stroke-width="1.5" stroke="red"/>
+</g>
+<g id="left-arm">
+  <rect class="body-parts" x="26" y="100" width="6" height="120"/>
+  <circle class="body-colour" cx="29.615" cy="103.38" r="7.28"/>
+  <circle class="body-colour" cx="28.665" cy="156.831" r="5.864"/>
+  <rect class="body-parts" x="35" y="94" width="6" height="19"/>
+  <rect class="body-parts" x="15" y="208" width="27" height="19"/>
+  <rect class="body-colour" x="15" y="204" width="27" height="19"/>
+</g>
+<g id="right-arm">
+  <rect class="body-parts" x="138" y="100" width="6" height="120"/>
+  <circle class="body-colour" cx="140.747" cy="103.38" r="7.28"/>
+  <rect class="body-parts" x="130" y="94" width="6" height="19"/>
+  <circle class="body-colour" cx="141.767" cy="156.831" r="5.864"/>
+  <rect class="body-parts" x="128" y="208" width="27" height="19"/>
+  <rect class="body-colour" x="128" y="204" width="27" height="19"/>
+</g>
+
+</svg>
