@@ -1,7 +1,21 @@
 import React, { Component } from "react";
 import axios from "axios";
-
 import { Button, Container, Row, Col } from "reactstrap";
+import ReactDOM from "react-dom";
+import TwitterBotScore from "./TwitterBotScore";
+
+// import "snapsvg-cjs";
+// import Snap from "snapsvg-cjs";
+// import Snap from "imports-loader?this=>window,fix=>module.exports=0!snapsvg/dist/snap.svg.js";
+// import ReactSnap from "react-snap-svg";
+
+// ReactDOM.render(
+//   <ReactSnap>
+//     {s => {
+//       s.circle(150, 150, 100);
+//     }}
+//   </ReactSnap>
+// );
 // import Tweet from './Tweet';
 // import PropTypes from 'prop-types';
 // axios.defaults.xsrfCookieName = 'csrftoken'
@@ -15,7 +29,7 @@ class TimeLine extends Component {
     super(props);
     this.state = {
       error: null,
-      isLoaded: false,
+      isLoading: false,
       tweets: [],
       twitter_user: ""
     };
@@ -45,6 +59,9 @@ class TimeLine extends Component {
   };
 
   singleBotScore = () => {
+    this.setState({
+      isLoading: true
+    });
     axios
       .get(`${URL}?twitter_user=${this.state.twitter_user}`, {
         withCredentials: true
@@ -54,19 +71,23 @@ class TimeLine extends Component {
         result => {
           console.log(result);
           this.setState({
-            isLoaded: false,
+            isLoading: false,
             tweets: [result.data]
           });
         },
         error => {
           this.setState({
-            isLoaded: true,
+            isLoading: true,
             error
           });
         }
       );
   };
   multiBotScore = () => {
+    this.setState({
+      isLoading: true
+    });
+
     axios
       .get(`${URL2}?twitter_user=${this.state.twitter_user}`, {
         withCredentials: true
@@ -76,7 +97,7 @@ class TimeLine extends Component {
         result => {
           console.log(result);
           this.setState({
-            isLoaded: false,
+            isLoading: false,
             tweets: result.data
           });
         },
@@ -90,35 +111,38 @@ class TimeLine extends Component {
   };
 
   render() {
-    const { error, isLoaded, tweets } = this.state;
+    const { error, isLoading, tweets } = this.state;
     console.log("TWEETS");
     console.log(tweets);
     if (error) {
       return <div> Error: {error.message} </div>;
-    } else if (isLoaded) {
-      return <div> Loading... </div>;
     }
+
     const tweetstack = tweets.map(tweet => {
+      // return (
+      //   <li key={tweet.screen_name}>
+      //     {tweet.screen_name} {tweet.bot_score}
+      //   </li>
+      // );
       return (
-        <li key={tweet.screen_name}>
-          {tweet.screen_name} {tweet.bot_score}
-        </li>
+        <TwitterBotScore
+          key={tweet.screen_name}
+          bot_score={tweet.bot_score}
+          screen_name={tweet.screen_name}
+          profile_url={tweet.profile_url}
+        />
       );
     });
     return (
       <Container>
+        {isLoading === true && <div>Loading</div>}
+        <TwitterBotScore />
         <head />
         <div class="container">
           <div class="row">
             <div class="col-md-4" />
 
             <h2>Heading</h2>
-            <p>
-              Donec sed odio dui. Cras justo odio, dapibus ac facilisis in,
-              egestas eget quam. Vestibulum id ligula porta felis euismod
-              semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-              condimentum nibh, ut fermentum massa justo sit amet risus.
-            </p>
           </div>
         </div>
         <div>
