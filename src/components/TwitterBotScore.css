@@ -1,0 +1,15 @@
+.card {
+  background-image: ;
+  color: black;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card-img-top {
+  width: 40% !important;
+}
+
+/* .card-img-top {
+  width: 10%;
+  height: auto;
+  margin: 0 auto; /* Added */

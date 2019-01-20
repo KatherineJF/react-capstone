@@ -27,7 +27,7 @@
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: px;
 }
 
 .App-header {
@@ -59,7 +59,7 @@
 }
 
 .card {
-  background-image: url("https://i.pinimg.com/originals/0f/a7/fc/0fa7fc1a28d776284515411aa15b8890.jpg");
+  background-image: ;
   color: white;
   background-repeat: no-repeat;
   background-size: cover;
