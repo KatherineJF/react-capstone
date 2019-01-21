@@ -105,20 +105,16 @@ class TimeLine extends Component {
       return <div> Error: {error.message} </div>;
     }
 
-    const botscore = this.state.tweets.map((botscore, i) => {
-      // return (
-      //   <li key={tweet.screen_name}>
-      //     {tweet.screen_name} {tweet.bot_score}
-      //   </li>
+    // const boardList = this.state.cards.map(card => {
+    //   console.log(card.id);
+    //   return (
+    //     <Card {...card} key={card.id} removeCardCallback={this.removeCard} />
+    //   );
+    // });
 
-      return (
-        <BotScore
-          key={i}
-          screen_name={botscore.screen_name}
-          bot_score={botscore.bot_score}
-          profile_url={botscore.profile_url}
-        />
-      );
+    const botscore = this.state.tweets.map(score => {
+      console.log(score, "this is the score object");
+      return <BotScore {...score} key={score.screen_name} />;
     });
 
     return (
@@ -151,19 +147,16 @@ class TimeLine extends Component {
             <p> Computing Score</p>
           </div>
         )}
-        <div class="jumbotron">
-          <div class="container">
-            <StackGrid columnWidth={400}>
-              <BotScore />
-            </StackGrid>
-          </div>
+        <div class="contact-section">
+          <StackGrid columnWidth={400}>{botscore}</StackGrid>
         </div>
+
         <div>
           <main>
             <div class="jumbotron">
               <div class="container">
                 <h1 class="display-3">Do I Follow People or Bots?</h1>
-                <BotScore />
+
                 <form name="twitter_user" onSubmit={this.onSubmitHandlerMulti}>
                   <div>
                     <label>
