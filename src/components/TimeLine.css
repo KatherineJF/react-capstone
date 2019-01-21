@@ -1,0 +1,110 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Set the fixed height of the footer here */
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
+
+.wrapper {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.controls {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+}
+
+.bg-image-controls {
+  background-image: url("https://www.vanseodesign.com/blog/wp-content/uploads/2011/10/background-3.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 765px;
+  height: 579px;
+  text-align: center;
+}
+
+body {
+  background: white;
+  padding-top: 100px;
+}
+
+p {
+  color: lime;
+  font-family: "Courier";
+  font-size: 40px;
+  margin: 10px 0 0 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 30em;
+  animation: type 4s steps(60, end);
+}
+
+p:nth-child(2) {
+  animation: type2 8s steps(60, end);
+}
+
+p a {
+  color: lime;
+  text-decoration: none;
+}
+
+span {
+  animation: blink 1s infinite;
+}
+
+@keyframes type {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes type2 {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 0;
+  }
+  100% {
+    width: 100;
+  }
+}
+
+@keyframes blink {
+  to {
+    opacity: 0;
+  }
+}
+
+::selection {
+  background: black;
+}
+
+.signup-section {
+  padding: 10rem 0;
+  background: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(rgba(22, 22, 22, 0.1)),
+      color-stop(75%, rgba(22, 22, 22, 0.5)),
+      to(#161616)
+    ),
+    url("../components/RobotWar.jpg");
+  background: linear-gradient(
+      to bottom,
+      rgba(22, 22, 22, 0.1) 0%,
+      rgba(22, 22, 22, 0.5) 75%,
+      #161616 100%
+    ),
+    url("../components/RobotWar.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}

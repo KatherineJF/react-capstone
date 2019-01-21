@@ -25,7 +25,7 @@ import StackGrid from "react-stack-grid";
 
 const URL2 = "http://127.0.0.1:8000/check_account_in/";
 
-class TimeLine extends Component {
+class CheckMany extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -185,4 +185,4 @@ class TimeLine extends Component {
   }
 }
 
-export default TimeLine;
+export default CheckMany;

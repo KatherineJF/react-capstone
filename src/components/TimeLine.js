@@ -2,26 +2,11 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Button, Container, Row, Col } from "reactstrap";
 import ReactDOM from "react-dom";
-import TwitterBotScore from "./TwitterBotScore";
+import BotScore from "./BotScore";
 import logo from "./logo.svg";
 import StackGrid from "react-stack-grid";
-
-// import "snapsvg-cjs";
-// import Snap from "snapsvg-cjs";
-// import Snap from "imports-loader?this=>window,fix=>module.exports=0!snapsvg/dist/snap.svg.js";
-// import ReactSnap from "react-snap-svg";
-
-// ReactDOM.render(
-//   <ReactSnap>
-//     {s => {
-//       s.circle(150, 150, 100);
-//     }}
-//   </ReactSnap>
-// );
-// import Tweet from './Tweet';
-// import PropTypes from 'prop-types';
-// axios.defaults.xsrfCookieName = 'csrftoken'
-// axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+import RobotWar from "./RobotWar.jpg";
+import "./TimeLine.css";
 
 const URL = "http://127.0.0.1:8000/check_account/";
 const URL2 = "http://127.0.0.1:8000/check_account_in/";
@@ -120,23 +105,45 @@ class TimeLine extends Component {
       return <div> Error: {error.message} </div>;
     }
 
-    const tweetstack = tweets.map(tweet => {
+    const botscore = this.state.tweets.map((botscore, i) => {
       // return (
       //   <li key={tweet.screen_name}>
       //     {tweet.screen_name} {tweet.bot_score}
       //   </li>
-      // );
+
       return (
-        <TwitterBotScore
-          key={tweet.screen_name}
-          bot_score={tweet.bot_score}
-          screen_name={tweet.screen_name}
-          profile_url={tweet.profile_url}
+        <BotScore
+          key={i}
+          screen_name={botscore.screen_name}
+          bot_score={botscore.bot_score}
+          profile_url={botscore.profile_url}
         />
       );
     });
+
     return (
       <Container>
+        <p>Bot or Not?</p>
+        <div class="signup-section">
+          <div class="container">
+            <form name="twitter_user" onSubmit={this.onSubmitHandler}>
+              <div>
+                <label>
+                  Check Twitter handle:
+                  <input
+                    type="text"
+                    name="name"
+                    value={this.state.value}
+                    onChange={this.onChange}
+                  />
+                </label>
+                <Button bsStyle="info" type="submit" value="submit">
+                  Submit
+                </Button>
+              </div>
+            </form>
+          </div>
+        </div>
         {isLoading === true && (
           <div>
             {<img src={logo} className="App-logo" alt="logo" />}
@@ -144,112 +151,119 @@ class TimeLine extends Component {
             <p> Computing Score</p>
           </div>
         )}
-
-        <div class="container" />
+        <div class="jumbotron">
+          <div class="container">
+            <StackGrid columnWidth={400}>
+              <BotScore />
+            </StackGrid>
+          </div>
+        </div>
         <div>
           <main>
             <div class="jumbotron">
               <div class="container">
-                <h1 class="display-3">Bot or Not?</h1>
-                <form name="twitter_user" onSubmit={this.onSubmitHandler}>
+                <h1 class="display-3">Do I Follow People or Bots?</h1>
+                <BotScore />
+                <form name="twitter_user" onSubmit={this.onSubmitHandlerMulti}>
                   <div>
                     <label>
-                      Check Twitter handle:
+                      Follow Bots?:
                       <input
                         type="text"
                         name="name"
                         value={this.state.value}
-                        onChange={this.onChange}
+                        onChange={this.onChangeMulti}
                       />
                     </label>
                     <Button bsStyle="info" type="submit" value="submit">
-                      Twitter User
+                      Submit
                     </Button>
                   </div>
                 </form>
               </div>
             </div>
-            <div>
-              <StackGrid columnWidth={400}>{tweetstack}</StackGrid>
-            </div>
           </main>
         </div>
-        <footer class="container">
-          <p>© Company 2017-2018</p>
-        </footer>
       </Container>
-
-      // <div class="jumbotron">
-      // <div class="container">
-      //   <h1 class="display-3">Do I Follow People or Bots?</h1>
-      //   {tweetstack}
-      //   <form name="twitter_user" onSubmit={this.onSubmitHandlerMulti}>
-      //     <div>
-      //       <label>
-      //         Follow Bots?:
-      //         <input
-      //           type="text"
-      //           name="name"
-      //           value={this.state.value}
-      //           onChange={this.onChangeMulti}
-      //         />
-      //       </label>
-      //       <Button bsStyle="info" type="submit" value="submit">
-      //         Twitter User
-      //       </Button>
-      //     </div>
-      //   </form>
-      //     </div>
-      //   </div>
-      // </main>
-
-      //     <footer class="container">
-      //       <p>© Company 2017-2018</p>
-      //     </footer>
-      //   </div>
-      // </Container>
-
-      // <Row>
-      //   <div className="App">
-      //     <Col xs="10">{tweetstack}</Col>
-      //     <form name="twitter_user" onSubmit={this.onSubmitHandler}>
-      //       <div>
-      //         <label>
-      //           Bot or Not?:
-      //           <input
-      //             type="text"
-      //             name="name"
-      //             value={this.state.value}
-      //             onChange={this.onChange}
-      //           />
-      //         </label>
-      //         <Button bsStyle="info" type="submit" value="submit">
-      //           Twitter User
-      //         </Button>
-      //       </div>
-      //     </form>
-      //
-      //     <form name="twitter_user" onSubmit={this.onSubmitHandlerMulti}>
-      //       <div>
-      //         <label>
-      //           Follow Bots?:
-      //           <input
-      //             type="text"
-      //             name="name"
-      //             value={this.state.value}
-      //             onChange={this.onChangeMulti}
-      //           />
-      //         </label>
-      //         <Button bsStyle="info" type="submit" value="submit">
-      //           Twitter User
-      //         </Button>
-      //       </div>
-      //     </form>
-      //   </div>
-      // </Row>
-      //
     );
   }
 }
 
+// <div class="container">
+//   {isLoading !== true && <img src={RobotWar} alt="war" />}
+// </div>
+
 export default TimeLine;
+
+//             // <div class="jumbotron">
+//               // <div class="container">
+//               //   <h1 class="display-3">Do I Follow People or Bots?</h1>
+//               //   {tweetstack}
+//               //   <form name="twitter_user" onSubmit={this.onSubmitHandlerMulti}>
+//               //     <div>
+//               //       <label>
+//               //         Follow Bots?:
+//               //         <input
+//               //           type="text"
+//               //           name="name"
+//               //           value={this.state.value}
+//               //           onChange={this.onChangeMulti}
+//               //         />
+//               //       </label>
+//               //       <Button bsStyle="info" type="submit" value="submit">
+//               //         Twitter User
+//               //       </Button>
+//               //     </div>
+//               //   </form>
+//           //     </div>
+//           //   </div>
+//           // </main>
+//
+//       //     <footer class="container">
+//       //       <p>© Company 2017-2018</p>
+//       //     </footer>
+//       //   </div>
+//       // </Container>
+//
+//       // <Row>
+//       //   <div className="App">
+//       //     <Col xs="10">{tweetstack}</Col>
+//       //     <form name="twitter_user" onSubmit={this.onSubmitHandler}>
+//       //       <div>
+//       //         <label>
+//       //           Bot or Not?:
+//       //           <input
+//       //             type="text"
+//       //             name="name"
+//       //             value={this.state.value}
+//       //             onChange={this.onChange}
+//       //           />
+//       //         </label>
+//       //         <Button bsStyle="info" type="submit" value="submit">
+//       //           Twitter User
+//       //         </Button>
+//       //       </div>
+//       //     </form>
+//       //
+//       //     <form name="twitter_user" onSubmit={this.onSubmitHandlerMulti}>
+//       //       <div>
+//       //         <label>
+//       //           Follow Bots?:
+//       //           <input
+//       //             type="text"
+//       //             name="name"
+//       //             value={this.state.value}
+//       //             onChange={this.onChangeMulti}
+//       //           />
+//       //         </label>
+//       //         <Button bsStyle="info" type="submit" value="submit">
+//       //           Twitter User
+//       //         </Button>
+//       //       </div>
+//       //     </form>
+//       //   </div>
+//       // </Row>
+//       //
+//     );
+//   }
+// }

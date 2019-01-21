@@ -12,9 +12,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="navbar navbar-expand-lg navbar-light bg-light">
-          <Nav />
-        </div>
         <section>
           <TimeLine />
         </section>

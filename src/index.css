@@ -1,14 +1,85 @@
 body {
   margin: 0;
-  padding: 0;
+  padding: 100px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #589aac;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+/*
+/* .st0{fill:#5AB095;} /green
+.st1{fill:#5B3420;} /brown
+.st2{fill:#F3C25D;} */
+
+/* .st3 {
+  fill: none;
+  stroke: #f3c25d;
+  stroke-width: 5;
+  stroke-miterlimit: 10;
+} */
+/* coral */
+/* .st4 {
+  fill: #e68052;
+} */
+/* yellow daffodil */
+/* .st5 {
+  fill: #ecc44d;
+} */
+/* foresty green */
+/* .st6 {
+  fill: #317d6b;
+} */
+/* default neutral background */
+/* .st7 {
+  fill: #ec8451;
+} */
+/* dark brown */
+/* .st8 {
+  fill: #4c2c1d;
+} */
+/* best green favorite */
+/* .st9 {
+  fill: #65b1a5;
+} */
+/* bright coral */
+/* .st10 {
+  fill: #e45347;
+} */
+/* dark green */
+/* .st11 {
+  fill: #347f70;
+} */
+/* another darfk green */
+/* .st12 {
+  fill: #317d6d;
+} */
+/* bright yellow */
+/* .st13 {
+  fill: #f3c054;
+} */
+/* dark coral */
+/* .st14 {
+  fill: #e24f41;
+} */
+/* brighter yellow  */
+/* .st15 {
+  fill: #f3c759;
+} */
+/* coral dark  */
+/* .st16 {
+  fill: #d24d45;
+} */
+/* very dark brown */
+/* .st17 {
+  fill: #452720;
+} */
+/* .st18 {
+  fill: #fffcfb;
+} */
