@@ -125,25 +125,36 @@ class TimeLine extends Component {
           <ReactSpeedometer />
         </div>
         <div class="signup-section">
-          <div class="container">
-            <form name="twitter_user" onSubmit={this.onSubmitHandler}>
-              <div>
-                <label>
-                  Check Twitter handle:
-                  <input
-                    type="text"
-                    name="name"
-                    value={this.state.value}
-                    onChange={this.onChange}
-                  />
-                </label>
-                <Button bsStyle="info" type="submit" value="submit">
-                  Submit
-                </Button>
-              </div>
-            </form>
-          </div>
+          <form name="twitter_user" onSubmit={this.onSubmitHandler}>
+            <label>
+              Check Twitter handle @:
+              <input
+                type="text"
+                name="name"
+                value={this.state.value}
+                onChange={this.onChange}
+              />
+            </label>
+            <Button bsStyle="info" type="submit" value="submit">
+              Submit
+            </Button>
+          </form>
+          <form name="twitter_user" onSubmit={this.onSubmitHandlerMulti}>
+            <label>
+              Follow Bots?:
+              <input
+                type="text"
+                name="name"
+                value={this.state.value}
+                onChange={this.onChangeMulti}
+              />
+            </label>
+            <Button bsStyle="info" type="submit" value="submit">
+              Submit
+            </Button>
+          </form>
         </div>
+
         {isLoading === true && (
           <div>
             {<img src={logo} className="App-logo" alt="logo" />}
@@ -152,35 +163,7 @@ class TimeLine extends Component {
           </div>
         )}
         <div class="contact-section">
-          <div class="container">
-            <StackGrid columnWidth={400}>{botscore}</StackGrid>
-          </div>
-        </div>
-        <div>
-          <main>
-            <div class="signup-section">
-              <div class="signup-section .form-inline input">
-                <h1 class="display-3">Do I Follow People or Bots?</h1>
-
-                <form name="twitter_user" onSubmit={this.onSubmitHandlerMulti}>
-                  <div>
-                    <label>
-                      Follow Bots?:
-                      <input
-                        type="text"
-                        name="name"
-                        value={this.state.value}
-                        onChange={this.onChangeMulti}
-                      />
-                    </label>
-                    <Button bsStyle="info" type="submit" value="submit">
-                      Submit
-                    </Button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </main>
+          <StackGrid columnWidth={400}>{botscore}</StackGrid>
         </div>
       </Container>
     );

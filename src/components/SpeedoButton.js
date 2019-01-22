@@ -18,7 +18,7 @@ class SpeedoButton extends React.Component {
 
     this.values = [
       {
-        value: 0,
+        value: this.props.bot_score,
         startColor: "blue",
         segments: 5,
         width: 300,
@@ -26,7 +26,7 @@ class SpeedoButton extends React.Component {
         maxValue: 5
       },
       {
-        value: 222,
+        value: this.props.bot_score,
         startColor: "orange",
         segments: 5,
         width: 400,
@@ -38,14 +38,6 @@ class SpeedoButton extends React.Component {
   render() {
     return (
       <div>
-        <h4>
-          Click the below button to force rerendering the whole component on
-          props change. By default, on props change, only the speedometer
-          value/needle value will be updated and animated for smooth
-          visualization. Below button will toggle between two sets of totally
-          different appearances, when forceRender option is given true.
-        </h4>
-
         <button
           onClick={() => {
             // change the toggle status
@@ -60,12 +52,10 @@ class SpeedoButton extends React.Component {
             this.setState(new_values);
             console.log(this.state.values[0]);
           }}
-        >
-          <strong>Force Re render component on props change</strong>
-        </button>
+        />
         <ReactSpeedometer
           maxValue={5}
-          value={this.state.bot_score}
+          value={this.props.bot_score}
           startColor={this.state.startColor}
           forceRender={true}
           segments={this.state.segments}
@@ -76,5 +66,9 @@ class SpeedoButton extends React.Component {
     );
   }
 }
+
+SpeedoButton.propTypes = {
+  bot_score: PropTypes.float
+};
 
 export default SpeedoButton;
