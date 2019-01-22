@@ -6,23 +6,6 @@ import TwitterBotScore from "./TwitterBotScore";
 import logo from "./logo.svg";
 import StackGrid from "react-stack-grid";
 
-// import "snapsvg-cjs";
-// import Snap from "snapsvg-cjs";
-// import Snap from "imports-loader?this=>window,fix=>module.exports=0!snapsvg/dist/snap.svg.js";
-// import ReactSnap from "react-snap-svg";
-
-// ReactDOM.render(
-//   <ReactSnap>
-//     {s => {
-//       s.circle(150, 150, 100);
-//     }}
-//   </ReactSnap>
-// );
-// import Tweet from './Tweet';
-// import PropTypes from 'prop-types';
-// axios.defaults.xsrfCookieName = 'csrftoken'
-// axios.defaults.xsrfHeaderName = 'X-CSRFToken'
-
 const URL2 = "http://127.0.0.1:8000/check_account_in/";
 
 class CheckMany extends Component {

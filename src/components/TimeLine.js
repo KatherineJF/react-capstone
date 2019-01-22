@@ -7,6 +7,7 @@ import logo from "./logo.svg";
 import StackGrid from "react-stack-grid";
 import RobotWar from "./RobotWar.jpg";
 import "./TimeLine.css";
+import ReactSpeedometer from "./SpeedoButton";
 
 const URL = "http://127.0.0.1:8000/check_account/";
 const URL2 = "http://127.0.0.1:8000/check_account_in/";
@@ -120,6 +121,9 @@ class TimeLine extends Component {
     return (
       <Container>
         <p>Bot or Not?</p>
+        <div>
+          <ReactSpeedometer />
+        </div>
         <div class="signup-section">
           <div class="container">
             <form name="twitter_user" onSubmit={this.onSubmitHandler}>
@@ -148,13 +152,14 @@ class TimeLine extends Component {
           </div>
         )}
         <div class="contact-section">
-          <StackGrid columnWidth={400}>{botscore}</StackGrid>
+          <div class="container">
+            <StackGrid columnWidth={400}>{botscore}</StackGrid>
+          </div>
         </div>
-
         <div>
           <main>
-            <div class="jumbotron">
-              <div class="container">
+            <div class="signup-section">
+              <div class="signup-section .form-inline input">
                 <h1 class="display-3">Do I Follow People or Bots?</h1>
 
                 <form name="twitter_user" onSubmit={this.onSubmitHandlerMulti}>
