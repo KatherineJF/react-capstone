@@ -162,9 +162,8 @@ class TimeLine extends Component {
             <p> Computing Score</p>
           </div>
         )}
-        <div class="contact-section">
-          <StackGrid columnWidth={400}>{botscore}</StackGrid>
-        </div>
+
+        <StackGrid columnWidth={400}>{botscore}</StackGrid>
       </Container>
     );
   }
