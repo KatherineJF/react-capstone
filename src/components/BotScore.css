@@ -5,16 +5,20 @@ body {
   background: #fbfbfb;
 }
 .card {
-  position: absolute;
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  /* position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   width: 300px;
-  min-height: 400px;
-  background: #fff;
+  /* min-height: 400px; */
+  background-color: #fff;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   transition: 0.5s;
+  color: #333;
 }
 .card:hover {
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.2);
@@ -79,30 +83,6 @@ body {
   color: #e91e63;
   transform: rotateY(360deg);
 }
-
-/* .card {
-  background-image: ;
-  color: black;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.card-img-top {
-  width: 40% !important;
-}
-
-/* .card-img-top {
-  width: 10%;
-  height: auto;
-  margin: 0 auto; /* Added */
-/* .contact-section {
-  padding: 5rem 0 0;
-}
-
-.contact-section .card {
-  border: 0;
-  border-bottom: 0.25rem solid #64a19d;
-} */
 
 /* .contact-section .card h4 {
   font-size: 0.8rem;

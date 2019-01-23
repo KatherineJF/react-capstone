@@ -121,9 +121,7 @@ class TimeLine extends Component {
     return (
       <Container>
         <p>Bot or Not?</p>
-        <div>
-          <ReactSpeedometer />
-        </div>
+        <div />
         <div class="signup-section">
           <form name="twitter_user" onSubmit={this.onSubmitHandler}>
             <label>
@@ -155,15 +153,15 @@ class TimeLine extends Component {
           </form>
         </div>
 
-        {isLoading === true && (
+        {isLoading === true ? (
           <div>
             {<img src={logo} className="App-logo" alt="logo" />}
             <p>Loading</p>
             <p> Computing Score</p>
           </div>
+        ) : (
+          <div className="botscores">{botscore}</div>
         )}
-
-        <StackGrid columnWidth={400}>{botscore}</StackGrid>
       </Container>
     );
   }
