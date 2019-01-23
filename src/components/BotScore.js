@@ -2,6 +2,18 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./BotScore.css";
 import ReactSpeedometer from "react-d3-speedometer";
+import {
+  TwitterTimelineEmbed,
+  TwitterShareButton,
+  TwitterFollowButton,
+  TwitterHashtagButton,
+  TwitterMentionButton,
+  TwitterTweetEmbed,
+  TwitterMomentShare,
+  TwitterDMButton,
+  TwitterVideoEmbed,
+  TwitterOnAirButton
+} from "react-twitter-embed";
 
 const BotScore = props => {
   return (
@@ -19,6 +31,13 @@ const BotScore = props => {
           endColor="#ff0000"
           value={props.bot_score}
         />
+        <div>
+          <TwitterTimelineEmbed
+            sourceType="profile"
+            screenName={props.screen_name}
+            options={{ height: 400 }}
+          />
+        </div>
       </div>
     </a>
   );

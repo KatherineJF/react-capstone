@@ -8,6 +8,18 @@ import StackGrid from "react-stack-grid";
 import RobotWar from "./RobotWar.jpg";
 import "./TimeLine.css";
 import ReactSpeedometer from "./SpeedoButton";
+import {
+  TwitterTimelineEmbed,
+  TwitterShareButton,
+  TwitterFollowButton,
+  TwitterHashtagButton,
+  TwitterMentionButton,
+  TwitterTweetEmbed,
+  TwitterMomentShare,
+  TwitterDMButton,
+  TwitterVideoEmbed,
+  TwitterOnAirButton
+} from "react-twitter-embed";
 
 const URL = "http://127.0.0.1:8000/check_account/";
 const URL2 = "http://127.0.0.1:8000/check_account_in/";
