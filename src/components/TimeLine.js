@@ -136,7 +136,7 @@ class TimeLine extends Component {
         <div />
         <div class="signup-section">
           <form name="twitter_user" onSubmit={this.onSubmitHandler}>
-            <label>
+            <label style={{ color: "white" }}>
               Check Twitter handle @:
               <input
                 type="text"
@@ -150,8 +150,8 @@ class TimeLine extends Component {
             </Button>
           </form>
           <form name="twitter_user" onSubmit={this.onSubmitHandlerMulti}>
-            <label>
-              Follow Bots?:
+            <label style={{ color: "white" }}>
+              Follow Bots? Check @:
               <input
                 type="text"
                 name="name"

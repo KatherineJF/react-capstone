@@ -34,6 +34,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "engines": {
+    "node": "11.1.0",
+    "npm": "6.5.0"
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
